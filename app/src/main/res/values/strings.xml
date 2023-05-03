@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Games</string>
+    <string name="pf">Picas y Fijas es un juego que tiene como objetivo hallar una cifra numérica de 4 cifras, de modo que para lograr lo el usuario debe digitar un numero de cuatro cifras y el sistema le retornara unas picas y una fijas:\nPicas: Cantidad de cifras numéricas que corresponden a la cifra a obtener pero que están en una posición incorrecta.\nFijas: Cantidad de cifras numéricas que corresponden al número a obtener y que se encuentran en la posición correcta.\nEl usuario sumará un punto cuando halle la cifra desconocida, y después de ello podrá guardar el progreso, resetear el juego o avanzar al siguiente nivel.</string>
+    <string name="popcat">PopCat es un juego muy sencillo que consiste en acumular clicks, de modo que el desafío es superar el récord establecido por un usuario. Este juego fue inspirado y basado en "PopCat" el cual es un aplicativo web que tiene un objetivo similar a esta copia, pero su alcance ya es a nivel mundial.\nA continuación dejo el link del juego original "https://popcat.click/".</string>
+    <string name="alertPF">Por favor ingresa un numero de ¡4 CIFRAS!</string>
+    <string name="alertForms">Error, campo vacío.</string>
+</resources>
