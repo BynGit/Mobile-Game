@@ -30,10 +30,28 @@ import com.example.games2.components.textAlert
 import com.example.games2.components.victoryPF
 import com.example.games2.navegation.Routes
 import com.example.games2.ui.theme.Pixel
+import kotlin.random.Random
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter", "UnrememberedMutableState")
 @Composable
 fun PicasYFijas(navController: NavController) {
+
+    fun generarNumerosSinRepeticion(cantidad: Int): List<Int> {
+        val numeros = mutableListOf<Int>()
+        val numerosGenerados = HashSet<Int>()
+
+        while (numeros.size < cantidad) {
+            var numero = Random.nextInt(1000, 10000)
+            val digitos = numero.toString().toSet()
+            if (digitos.size == 4) {
+                numerosGenerados.add(numero)
+                numeros.add(numero)
+            }
+        }
+
+        return numeros
+    }
+
 
     var numUser: String by remember { mutableStateOf("") }
     var victoria by remember { mutableStateOf(false) }
@@ -48,7 +66,7 @@ fun PicasYFijas(navController: NavController) {
     var fijas by remember { mutableStateOf(0) }
     var picas by remember { mutableStateOf(0) }
 
-    val numero = listOf<Int>(2345, 5678, 9806, 6578, 9087, 1234, 7890, 7365, 9103)
+    var numero = generarNumerosSinRepeticion(5)
     var count = 0
     var count2 = 0
 
@@ -137,6 +155,17 @@ fun PicasYFijas(navController: NavController) {
             }
 
             item {
+                Text(
+                    text = "PUNTAJE: $puntaje",
+                    fontFamily = Pixel,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(10.dp),
+                    color = Color.Black,
+                )
+            }
+
+            item {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
@@ -179,8 +208,25 @@ fun PicasYFijas(navController: NavController) {
                 }
             }
 
+
+
+
+
             fun Verificar() {
+
+
+
+                if (numUser.toIntOrNull() != null && numUser.all { it.isDigit() }) {
+                    println("Es un entero: $numero")
+                }else {
+                    error = true
+                    return
+                }
+
+
+
                 if (numero.size == puntaje) {
+                    numero = generarNumerosSinRepeticion(10)
                 } else {
                     if (numUser.length <= 3 || numUser.length > 4) {
                         error = true
